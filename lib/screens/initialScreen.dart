@@ -1,3 +1,4 @@
+import 'package:alura_projeto/screens/form_screen.dart';
 import 'package:flutter/material.dart';
 import '../components/Task.dart';
 
@@ -10,6 +11,7 @@ class InitialScreen extends StatefulWidget {
 
 class _InitialScreenState extends State<InitialScreen> {
   bool opacidade = true;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -18,44 +20,28 @@ class _InitialScreenState extends State<InitialScreen> {
         leading: Container(),
         title: const Text('Tarefas'),
       ),
-      body: AnimatedOpacity(
-        opacity: opacidade == true ? 1 : 0,
-        duration: const Duration(milliseconds: 200),
-        child: ListView(
-          children: const [
-            Task(
-                'Lavar louça',
-                'assets/images/louca.webp',
-                1),
-            Task(
-                'Varrer casa',
-                'assets/images/varrer.jpg',
-                2),
-            Task(
-                'Aprender Flutter',
-                'assets/images/flutter.png',
-                5),
-            Task(
-                'Texto extremamente grande para teste',
-                'assets/images/test.png',
-                0),
-            SizedBox(
-              height: 80,
-            ),
-            // colors(Colors.white, Colors.black, Colors.pink),
-            // colors(Colors.red, Colors.black, Colors.pink),
-            // colors(Colors.grey, Colors.black, Colors.pink),
-            // colors(Colors.green, Colors.black, Colors.pink),
-          ],
-        ),
+      body: ListView(
+        children: const [
+
+          SizedBox(
+            height: 80,
+          ),
+          // colors(Colors.white, Colors.black, Colors.pink),
+          // colors(Colors.red, Colors.black, Colors.pink),
+          // colors(Colors.grey, Colors.black, Colors.pink),
+          // colors(Colors.green, Colors.black, Colors.pink),
+        ],
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          setState(() {
-            opacidade = !opacidade;
-          });
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => FormScreen(),
+            ),
+          );
         },
-        child: const Icon(Icons.remove_red_eye),
+        child: const Icon(Icons.add),
       ),
     );
   }

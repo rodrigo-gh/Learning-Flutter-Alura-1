@@ -25,7 +25,7 @@ class MyHome extends StatelessWidget {
         theme: ThemeData(
           primarySwatch: Colors.blue,
         ),
-        home: const FormScreen());
+        home: const InitialScreen());
   }
 }
 
